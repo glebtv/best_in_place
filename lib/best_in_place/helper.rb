@@ -30,9 +30,6 @@ module BestInPlace
         value = fieldValue ? opts[:collection][1] : opts[:collection][0]
         collection = opts[:collection].to_json
       end
-      
-      opts[:save_on_blur] ||= true
-      
       out = "<span class='best_in_place'"
       out << " id='#{BestInPlace::Utils.build_best_in_place_id(object, field)}'"
       out << " data-url='#{opts[:path].blank? ? url_for(object) : url_for(opts[:path])}'"
@@ -42,7 +39,7 @@ module BestInPlace
       out << " data-activator='#{opts[:activator]}'" unless opts[:activator].blank?
       out << " data-ok-button='#{opts[:ok_button]}'" unless opts[:ok_button].blank?
       out << " data-cancel-button='#{opts[:cancel_button]}'" unless opts[:cancel_button].blank?
-      out << " data-save-on-blur='#{opts[:save_on_blur].to_s}'" unless opts[:save_on_blur].blank?
+      out << " data-on-blur='#{opts[:on_blur]}'" unless opts[:on_blur].blank?
       out << " data-nil='#{opts[:nil]}'" unless opts[:nil].blank?
       out << " data-type='#{opts[:type]}'"
       out << " data-inner-class='#{opts[:inner_class]}'" if opts[:inner_class]
